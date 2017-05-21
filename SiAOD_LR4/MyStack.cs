@@ -15,8 +15,11 @@ namespace SiAOD_LR4
 
         public void Push(T newItem)
         {
-            Item<T> local = new Item<T>(newItem);
-            local.Back = stack;
+            Item<T> local = new Item<T>()
+            {
+                Element = newItem,
+                Back = stack
+            };
             stack.Next = local;
             stack = local;
             Count++;
@@ -24,12 +27,12 @@ namespace SiAOD_LR4
 
         public T Peek()
         {
-            return stack.item;
+            return stack.Element;
         }
 
         public T Pop()
         {
-            T item = stack.item;
+            T item = stack.Element;
             stack = stack.Back;
             stack.Next = null;
             Count--;

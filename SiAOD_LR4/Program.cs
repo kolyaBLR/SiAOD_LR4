@@ -18,7 +18,7 @@ namespace SiAOD_LR4
             Console.Write("введите инфиксную: ");
             string equation = Console.ReadLine();
             StackSettings decision = new StackSettings();
-            string result = decision.decision(equation);
+            string result = decision.Decision(equation);
             Console.WriteLine("постфиксная: {0}", result);
             Console.WriteLine("постфиксная: {0}", Reverse(result));
             Console.ReadKey();

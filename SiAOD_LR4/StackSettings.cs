@@ -9,7 +9,7 @@ namespace SiAOD_LR4
 {
     public class StackSettings
     {
-        public string decision(string str)
+        public string Decision(string str)
         {
             MyStack<char> stack = new MyStack<char>();
             string getStr = "";
@@ -29,7 +29,7 @@ namespace SiAOD_LR4
                 // и добавляем этот знак на вершину стека
                 if (str[i] == '+' || str[i] == '-' || str[i] == '*' || str[i] == '/')
                 {
-                    if (stack.Count != 0 && !isPrioritySymbol(str[i], stack.Peek()) && stack.Peek() != '(')
+                    if (stack.Count != 0 && !IsPrioritySymbol(str[i], stack.Peek()) && stack.Peek() != '(')
                         getStr += stack.Pop();
                     stack.Push(str[i]);
                 }
@@ -55,7 +55,7 @@ namespace SiAOD_LR4
 
         // проверка приоритетности знаков * /
         // относительно знаков + -
-        private bool isPrioritySymbol(char index, char peek)
+        private bool IsPrioritySymbol(char index, char peek)
         {
             if ((index == '*' || index == '/') && (peek == '+' || peek == '-'))
                 return true;
