@@ -20,7 +20,7 @@ namespace SiAOD_LR4
             StackSettings decision = new StackSettings();
             string result = decision.Decision(equation);
             Console.WriteLine("постфиксная: {0}", result);
-            Console.WriteLine("постфиксная: {0}", Reverse(result));
+            Console.WriteLine("префиксная: {0}", Reverse(decision.Decision(Reverse(equation))));
             Console.ReadKey();
         }
 
@@ -29,7 +29,20 @@ namespace SiAOD_LR4
             string newStr = "";
             for (int i = str.Length - 1; i >= 0; i--)
             {
-                newStr += str[i];
+                char ch;
+                switch (str[i])
+                {
+                    case '(':
+                        ch = ')';
+                        break;
+                    case ')':
+                        ch = '(';
+                        break;
+                    default:
+                        ch = str[i];
+                        break;
+                }
+                newStr += ch;
             }
             return newStr;
         }
